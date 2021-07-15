@@ -15,4 +15,4 @@ COPY --chown=node:node ./ ./
 
 FROM nginx:alpine
 EXPOSE 80
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=0 /home/node/app/build /usr/share/nginx/html
