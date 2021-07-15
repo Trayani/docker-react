@@ -7,9 +7,8 @@ services:
 before_install:
   - docker build -t jan.psota/docker-react:latest -f Dockerfile.dev .
 
-script:
-  - docker run -e CI=true jan.psota/docker-react:latest npm run test -- -- coverage 
 
+  
 deploy:
   provider: elasticbeanstalk
   region: "Dockerreact-env.eba-mnssn8bu.us-east-2.elasticbeanstalk.com"
