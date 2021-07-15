@@ -9,3 +9,16 @@ before_install:
 
 script:
   - docker run -e CI=true jan.psota/docker-react:latest npm run test -- -- coverage 
+
+deploy:
+  provider: elasticbeanstalk
+  region: "Dockerreact-env.eba-mnssn8bu.us-east-2.elasticbeanstalk.com"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-257960493775"
+  bucker_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
