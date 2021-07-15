@@ -1,13 +1,16 @@
 FROM node:alpine
 
-WORKDIR /app
+USER node
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
 
-COPY package.json .
+COPY --chown=node:node ./package.json ./
+
+COPY --chown=node:node ./.babelrc ./
+ 
 RUN npm install
-COPY ./ ./
-
-RUN npm run build
-
+COPY --chown=node:node ./ ./
+ 
 
 
 FROM nginx:alpine
