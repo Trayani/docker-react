@@ -20,3 +20,6 @@ COPY --chown=node:node ./ ./
 
 script:
   - docker run -e CI=true jan.psota/docker-react:latest npm run test -- -- coverage 
+
+
+  -f Dockerfile.dev .
