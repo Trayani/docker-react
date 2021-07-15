@@ -8,10 +8,10 @@ before_install:
   - docker build -t jan.psota/docker-react:latest -f Dockerfile.dev .
 
 
-  
+
 deploy:
   provider: elasticbeanstalk
-  region: "Dockerreact-env.eba-mnssn8bu.us-east-2.elasticbeanstalk.com"
+  region: "us-east-2"
   app: "docker-react"
   env: "Dockerreact-env"
   bucket_name: "elasticbeanstalk-us-east-2-257960493775"
@@ -19,5 +19,4 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: 
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key: $AWS_SECRET_KEY
